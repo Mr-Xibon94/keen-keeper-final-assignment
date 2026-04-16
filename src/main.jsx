@@ -7,6 +7,7 @@ import Dashboard from './Component/Dashboard/Dashboard'
 import ErrorHandling from './Component/Pages/ErrorHandling/ErrorHandling'
 import TimelinePage from './Component/Pages/Timeline/TimelinePage'
 import StatsChart from './Component/Pages/Stats/StatsChart'
+import FriendDetail from './Component/Dashboard/FriendDetail'
 
 
 const router = createBrowserRouter([
@@ -29,7 +30,18 @@ const router = createBrowserRouter([
       {
         path:'/stats',
         Component: StatsChart
+      },
+      {
+        path:'/friend/:id',
+        Component: FriendDetail,
+        loader: async({params}) => {
+          console.log('my paramsssss',params.id)
+          const res = await fetch('/FriendData.json')
+          const data= await res.json();
+          const selectedCard = data.find((myCard)=> myCard.id === parseInt(params.id))
+          return selectedCard
       }
+    },
     ],
     errorElement:<ErrorHandling/>
   },

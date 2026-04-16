@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const FriendList = ({ friend }) => {
     return (
         <div>
             <div>
                 
+                <Link to={`/friend/${friend.id}`}>
                 <div className=' border border-gray-200 shadow p-10 text-center rounded-lg space-y-2'>
                         <div className='flex justify-center'>
                         <img className='w-20 h-20 rounded-full' src={friend.picture} alt="" />
@@ -21,6 +23,7 @@ const FriendList = ({ friend }) => {
                     <p className={friend.status==='Overdue'?'bg-red-400 inline-block px-2 py-1 rounded-full text-[14px] text-white': friend.status==='Almost due'?'bg-amber-400 inline-block px-2 py-1 rounded-full text-[14px] text-white':'bg-[#244D3F] inline-block px-2 py-1 rounded-full text-[14px] text-white'}>{friend.status}</p>
 
                 </div>
+                </Link>
             </div>
         </div>
     );
