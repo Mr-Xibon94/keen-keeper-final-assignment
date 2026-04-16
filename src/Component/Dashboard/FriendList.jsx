@@ -13,7 +13,7 @@ const FriendList = ({ friend }) => {
                     </div>
                     <h1 className='font-medium text-xl'>{friend.name}</h1>
                     <p className='text-gray-500'>{friend.days_since_contact}d ago</p>
-                    <div className='flex gap-3 justify-center lg:justify-around'>
+                    <div className='flex gap-3 justify-center'>
                         {
                             friend.tags.map((tag)=>(
                             <p className='border px-1.5 rounded-full bg-green-200'>{tag}</p>
