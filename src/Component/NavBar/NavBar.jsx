@@ -5,7 +5,7 @@ import { ChartSpline, HistoryIcon,  HomeIcon, } from 'lucide-react';
 
 const NavBar = () => {
     return (
-        <div className='w-full border-b-2 bg-gray-100 p-4'>
+        <div className='w-full border-b border-gray-200 bg-gray-100 p-4'>
             <div className='w-[80%] m-auto flex flex-col space-y-3.5 md:flex-row md:justify-between'>
                 <div className='flex justify-center md:justify-start'>
                     <img src={navLogo} alt="it is a logo of NavBar" />
@@ -18,7 +18,7 @@ const NavBar = () => {
                         <button className='flex gap-.5'><span><HistoryIcon/> </span>TimeLine</button>
                     </NavLink>
                     <NavLink to="/stats" className={ ({isActive})=> isActive? 'bg-[#244D3F] text-white p-1.5 rounded-[7px] flex items-center': 'flex items-center'}>
-                        <button className='flex gap-.5 border border-gray-50 p-1'><ChartSpline/>Stats</button>
+                        <button className='flex gap-.5'><ChartSpline/>Stats</button>
                     </NavLink>
                 </div>
             </div>
