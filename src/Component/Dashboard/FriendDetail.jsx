@@ -9,7 +9,7 @@ const FriendDetail = () => {
 
     return (
         <div className='w-[80%] m-auto my-10'>
-            <div className='w-[80%] m-auto flex gap-10'>
+            <div className='w-[80%] m-auto flex flex-col md:flex-row gap-10'>
                 {/* left section  */}
                 <div className='space-y-3.5 flex-1'>
                     {/* its my card  */}
