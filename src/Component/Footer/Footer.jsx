@@ -30,11 +30,11 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className='flex justify-between text-gray-400 border-t border-gray-600 mt-8 pt-2.5'>
+                <div className='flex flex-col text-center space-y-2.5 md:flex-row justify-between text-gray-400 border-t border-gray-600 mt-8 pt-2.5'>
                     <div>
                         <p>&copy; 2026 KeenKeeper. All rights reserved.</p>
                     </div>
-                    <div className='flex  gap-2.5'>
+                    <div className='flex flex-col text-center md:flex-row md:gap-2.5'>
                         <p>Privacy Policy</p>
                         <p>Terms of Service</p>
                         <p>Cookies</p>
