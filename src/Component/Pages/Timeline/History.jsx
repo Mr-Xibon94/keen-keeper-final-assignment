@@ -1,8 +1,8 @@
 import { MessagesSquare, PhoneOutgoing, Video } from 'lucide-react';
-import React from 'react';
+
 
 const History = ({myContact}) => {
-    console.log('contact type', myContact.contactType);
+    console.log('contact typeeeeeee', myContact);
 
     const today = new Date().toLocaleDateString('en-us', {
         month:'short',
