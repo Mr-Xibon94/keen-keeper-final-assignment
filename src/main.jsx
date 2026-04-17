@@ -8,47 +8,53 @@ import ErrorHandling from './Component/Pages/ErrorHandling/ErrorHandling'
 import TimelinePage from './Component/Pages/Timeline/TimelinePage'
 import StatsChart from './Component/Pages/Stats/StatsChart'
 import FriendDetail from './Component/Dashboard/FriendDetail'
+import AllHistoryContext from './Component/Context/AllHistoryContext'
+
 
 
 const router = createBrowserRouter([
   {
-    path:'/',
+    path: '/',
     Component: Layouts,
-    children:[
+    children: [
       {
-        index:true,
+        index: true,
         Component: Dashboard,
-        loader: async() => {
+        loader: async () => {
           const res = await fetch('/FriendData.json');
           return res.json();
         },
       },
       {
-        path:'/timeline',
+        path: '/timeline',
         Component: TimelinePage,
       },
       {
-        path:'/stats',
+        path: '/stats',
         Component: StatsChart
       },
       {
-        path:'/friend/:id',
+        path: '/friend/:id',
         Component: FriendDetail,
-        loader: async({params}) => {
-          console.log('my paramsssss',params.id)
+        loader: async ({ params }) => {
+          // console.log('my paramsssss', params.id)
           const res = await fetch('/FriendData.json')
-          const data= await res.json();
-          const selectedCard = data.find((myCard)=> myCard.id === parseInt(params.id))
+          const data = await res.json();
+          const selectedCard = data.find((myCard) => myCard.id === parseInt(params.id))
           return selectedCard
-      }
-    },
+        }
+      },
     ],
-    errorElement:<ErrorHandling/>
+    errorElement: <ErrorHandling />
   },
 ])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router}/>,
+    <AllHistoryContext>
+     
+     <RouterProvider router={router} />,
+
+    </AllHistoryContext>
   </StrictMode>,
 )

@@ -1,11 +1,44 @@
 import { Archive, BellRing, MessagesSquare, PhoneOutgoing, Trash, Video } from 'lucide-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router';
+import { ContactHistoryContext } from '../Context/ContactHistoryContext';
 
 const FriendDetail = () => {
+    const {contact, setContact} = useContext(ContactHistoryContext);
 
     const myCardData = useLoaderData();
     console.log('here it is', myCardData);
+    const callHandler = ()=> {
+        
+        const newCard ={
+            ...myCardData, 
+            contactType:"Call"
+        }
+         setContact([...contact, newCard])
+         return
+    }
+
+    const textHandler = () => {
+         const newCard ={
+            ...myCardData, 
+            contactType:"Text"
+        }
+         setContact([...contact, newCard])
+         return
+
+    }
+
+    const videHandler = () => {
+        const newCard ={
+            ...myCardData, 
+            contactType:"Video"
+        }
+         setContact([...contact, newCard])
+         return
+    }
+
+
+
 
     return (
         <div className='w-[80%] m-auto my-10'>
@@ -77,15 +110,15 @@ const FriendDetail = () => {
                     <div className='mt-5'>
                         <h1 className='mb-2.5 font-medium'>Quick Check-In</h1>
                         <div className='flex flex-col md:flex-row justify-between gap-5'>
-                            <div className='flex-1 text-center bg-gray-100 rounded-xl  py-5'>
+                            <div onClick={callHandler} className='flex-1 text-center bg-gray-100 rounded-xl  py-5'>
                                 <span className='flex justify-center '><PhoneOutgoing /></span>
                                 <h1>Call</h1>
                             </div>
-                            <div className='flex-1 text-center bg-gray-100 rounded-xl  py-5'>
+                            <div onClick={textHandler} className='flex-1 text-center bg-gray-100 rounded-xl  py-5'>
                                 <span className='flex justify-center '><MessagesSquare /></span>
                                 <h1>Text</h1>
                             </div>
-                            <div className='flex-1 text-center bg-gray-100 rounded-xl  py-5'>
+                            <div onClick={videHandler} className='flex-1 text-center bg-gray-100 rounded-xl  py-5'>
                                 <span className='flex justify-center '><Video /></span>
                                 <h1>Video</h1>
                             </div>
