@@ -24,7 +24,7 @@ const Dashboard = () => {
                     {/* it is card section of my dashboard  */}
                     <div className='flex flex-col md:flex-wrap lg:flex-row space-y-5 justify-between mt-10 gap-6 border-b-1 border-gray-200 py-10'>
                         <div className='space-y-5 h-full flex-1 flex flex-col justify-center p-6 rounded-2xl text-center border border-gray-200 shadow'>
-                            <h1 className='text-2xl font-semibold'>06</h1>
+                            <h1 className='text-2xl font-semibold'>07</h1>
                             <p>Total Friends</p>
                         </div>
                         <div className='space-y-5 h-full flex-1 flex flex-col justify-center p-6 rounded-2xl text-center border border-gray-200 shadow'>
@@ -43,7 +43,7 @@ const Dashboard = () => {
 
                     <div>
                         <h1 className='m-5 text-2xl font-semibold'>Your Friends</h1>
-                        <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr] gap-6'>
+                        <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr] gap-6'>
 
                             {
                                 friends.map((friend) => (
@@ -51,7 +51,7 @@ const Dashboard = () => {
                                     <div>
                                         <FriendList key={friend.id} friend={friend}>
 
-                                    </FriendList>
+                                        </FriendList>
                                     </div>
 
 
