@@ -2,6 +2,7 @@ import { Archive, BellRing, MessagesSquare, PhoneOutgoing, Trash, Video } from '
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router';
 import { ContactHistoryContext } from '../Context/ContactHistoryContext';
+import { toast } from 'react-toastify';
 
 const FriendDetail = () => {
     const {contact, setContact} = useContext(ContactHistoryContext);
@@ -15,6 +16,7 @@ const FriendDetail = () => {
             contactType:"Call"
         }
          setContact([...contact, newCard])
+         toast.success(`Calling to ${myCardData.name} is successful`);
          return
     }
 
@@ -24,6 +26,7 @@ const FriendDetail = () => {
             contactType:"Text"
         }
          setContact([...contact, newCard])
+         toast.success(`Text to ${myCardData.name} is successful`);
          return
 
     }
@@ -34,6 +37,7 @@ const FriendDetail = () => {
             contactType:"Video"
         }
          setContact([...contact, newCard])
+         toast.success(`Video meeting with ${myCardData.name} is successful`);
          return
     }
 

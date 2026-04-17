@@ -9,6 +9,7 @@ import TimelinePage from './Component/Pages/Timeline/TimelinePage'
 import StatsChart from './Component/Pages/Stats/StatsChart'
 import FriendDetail from './Component/Dashboard/FriendDetail'
 import AllHistoryContext from './Component/Context/AllHistoryContext'
+import { ToastContainer } from 'react-toastify'
 
 
 
@@ -54,7 +55,7 @@ createRoot(document.getElementById('root')).render(
     <AllHistoryContext>
      
      <RouterProvider router={router} />,
-
+      <ToastContainer />
     </AllHistoryContext>
   </StrictMode>,
 )
