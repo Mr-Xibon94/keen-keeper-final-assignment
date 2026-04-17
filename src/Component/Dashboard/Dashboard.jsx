@@ -1,11 +1,27 @@
-import React from 'react';
-import { useLoaderData } from 'react-router';
+import React, { useEffect, useState } from 'react';
+
 import FriendList from './FriendList';
+import { DotLoader } from 'react-spinners';
 
 const Dashboard = () => {
 
-    const friends = useLoaderData();
-    console.log('here is my data', friends);
+    const [myFriends, setFriends] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch('/FriendData.json');
+            const data =await res.json();
+
+            setTimeout(() => {
+                setFriends(data);
+                setLoading(false)
+            },1000)
+        };
+        fetchData();
+    }, [])
+
+    console.log('here is my data', myFriends);
 
     return (
         <div className='w-full mt-15 mb-10'>
@@ -43,21 +59,27 @@ const Dashboard = () => {
 
                     <div>
                         <h1 className='m-5 text-2xl font-semibold'>Your Friends</h1>
-                        <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr] gap-6'>
-
-                            {
-                                friends.map((friend) => (
-
-                                    <div>
-                                        <FriendList key={friend.id} friend={friend}>
-
-                                        </FriendList>
-                                    </div>
+                        {loading ? (
+                            <div className=' flex justify-center'><DotLoader color="#244D3F" /></div>
+                        ) :
+                            <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr] gap-6'>
 
 
-                                ))
-                            }
-                        </div>
+                                {
+                                    myFriends.map((friend) => (
+
+                                        <div>
+                                            <FriendList key={friend.id} friend={friend}>
+
+                                            </FriendList>
+                                        </div>
+
+
+                                    ))
+                                }
+
+                            </div>
+                        }
                     </div>
 
                 </div>

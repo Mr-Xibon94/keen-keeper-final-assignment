@@ -21,10 +21,6 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Dashboard,
-        loader: async () => {
-          const res = await fetch('/FriendData.json');
-          return res.json();
-        },
       },
       {
         path: '/timeline',
@@ -53,8 +49,8 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AllHistoryContext>
-     
-     <RouterProvider router={router} />,
+
+      <RouterProvider router={router} />,
       <ToastContainer />
     </AllHistoryContext>
   </StrictMode>,

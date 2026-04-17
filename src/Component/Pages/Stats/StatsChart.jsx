@@ -12,9 +12,9 @@ const StatsChart = () => {
 
 
     const data = [
-        { name: 'Call', value: callContact.length, fill: '#0088FE' },
-        { name: 'Text', value: textContact.length, fill: '#00C49F' },
-        { name: 'Video', value: videContact.length, fill: '#FFBB28' },
+        { name: 'Call', value: callContact.length, fill: '#244D3F' },
+        { name: 'Text', value: textContact.length, fill: '#912cee' },
+        { name: 'Video', value: videContact.length, fill: '#52a447' },
         //   { name: 'Group D', value: 200, fill: '#FF8042' },
     ];
     return (

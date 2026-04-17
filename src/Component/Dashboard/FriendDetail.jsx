@@ -5,40 +5,46 @@ import { ContactHistoryContext } from '../Context/ContactHistoryContext';
 import { toast } from 'react-toastify';
 
 const FriendDetail = () => {
-    const {contact, setContact} = useContext(ContactHistoryContext);
+    const { contact, setContact } = useContext(ContactHistoryContext);
 
     const myCardData = useLoaderData();
     console.log('here it is', myCardData);
-    const callHandler = ()=> {
-        
-        const newCard ={
-            ...myCardData, 
-            contactType:"Call"
+    const callHandler = () => {
+
+        const newCard = {
+            ...myCardData,
+            contactType: "Call"
         }
-         setContact([...contact, newCard])
-         toast.success(`Calling to ${myCardData.name} is successful`);
-         return
+        setContact([...contact, newCard])
+        toast.success(`Calling to ${myCardData.name} is successful`, {
+            position:'top-center'
+        });
+        return
     }
 
     const textHandler = () => {
-         const newCard ={
-            ...myCardData, 
-            contactType:"Text"
+        const newCard = {
+            ...myCardData,
+            contactType: "Text"
         }
-         setContact([...contact, newCard])
-         toast.success(`Text to ${myCardData.name} is successful`);
-         return
+        setContact([...contact, newCard])
+        toast.success(`Text to ${myCardData.name} is successful`,{
+            position:'top-center'
+        });
+        return
 
     }
 
-    const videHandler = () => {
-        const newCard ={
-            ...myCardData, 
-            contactType:"Video"
+    const videoHandler = () => {
+        const newCard = {
+            ...myCardData,
+            contactType: "Video"
         }
-         setContact([...contact, newCard])
-         toast.success(`Video meeting with ${myCardData.name} is successful`);
-         return
+        setContact([...contact, newCard])
+        toast.success(`Video meeting with ${myCardData.name} is successful`,{
+            position:'top-center'
+        });
+        return
     }
 
 
@@ -77,7 +83,7 @@ const FriendDetail = () => {
                         <div className='border border-gray-200 shadow py-2 round-[7px] bg-white text-center font-semibold flex justify-center'><button className='flex gap-2.5' ><BellRing />Snoze 2 Weeks</button></div>
                         <div className='border border-gray-200 shadow py-2 round-[7px] bg-white text-center font-semibold flex justify-center'><button className='flex gap-2.5'><Archive />Archive</button></div>
                         <div className='border border-gray-200 shadow py-2 round-[7px] bg-white text-center font-semibold text-red-500 flex justify-center '><button className='flex gap-2.5' ><Trash />Delete</button></div>
-                        
+
                     </div>
                 </div>
                 {/* right section  */}
@@ -114,17 +120,17 @@ const FriendDetail = () => {
                     <div className='mt-5'>
                         <h1 className='mb-2.5 font-medium'>Quick Check-In</h1>
                         <div className='flex flex-col md:flex-row justify-between gap-5'>
-                            <div onClick={callHandler} className='flex-1 text-center bg-gray-100 rounded-xl  py-5'>
+                            <div onClick={callHandler} className='flex-1 text-center bg-gray-100 hover:bg-gray-300 rounded-xl  py-5 cursor-pointer'>
                                 <span className='flex justify-center '><PhoneOutgoing /></span>
-                                <h1>Call</h1>
+                                <h1 lassName='cursor-pointer'>Call</h1>
                             </div>
-                            <div onClick={textHandler} className='flex-1 text-center bg-gray-100 rounded-xl  py-5'>
+                            <div onClick={textHandler} className='flex-1 text-center bg-gray-100 hover:bg-gray-300 rounded-xl  py-5 cursor-pointer'>
                                 <span className='flex justify-center '><MessagesSquare /></span>
-                                <h1>Text</h1>
+                                <h1 lassName='cursor-pointer'>Text</h1>
                             </div>
-                            <div onClick={videHandler} className='flex-1 text-center bg-gray-100 rounded-xl  py-5'>
+                            <div onClick={videoHandler} className='flex-1 text-center bg-gray-100 hover:bg-gray-300 rounded-xl  py-5 cursor-pointer'>
                                 <span className='flex justify-center '><Video /></span>
-                                <h1>Video</h1>
+                                <h1 className='cursor-pointer'>Video</h1>
                             </div>
                         </div>
                     </div>
